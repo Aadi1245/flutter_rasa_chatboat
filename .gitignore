@@ -1,0 +1,8 @@
+﻿venvsaloni/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+.DS_Store
+*.log
