@@ -19,6 +19,11 @@ stories:
   - intent: affirm
   - action: utter_happy
 
+- story: tell weather
+  steps:
+  - intent: weather
+  - action: utter_weather
+
 - story: sad path 2
   steps:
   - intent: greet

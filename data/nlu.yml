@@ -17,6 +17,13 @@ nlu:
     - goodevening
     - good afternoon
 
+- intent: weather
+  examples: |
+    - how is the weather today
+    - what is the weather
+    - tell me the weather
+    - tell me about the weather
+
 - intent: goodbye
   examples: |
     - cu
