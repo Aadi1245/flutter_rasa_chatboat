@@ -3,6 +3,7 @@ version: "3.1"
 intents:
   - greet
   - goodbye
+  - question
   - affirm
   - deny
   - mood_great
@@ -10,29 +11,64 @@ intents:
   - bot_challenge
   - weather
 
-responses:
+entities:
+  - number
 
+slots:
+  number:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: number
+        conditions:
+          - active_loop: question_form
+            requested_slot: number
+
+  age:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: number
+        conditions:
+          - active_loop: question_form
+            requested_slot: age
+
+forms:
+  question_form:
+    required_slots:
+      - age
+      - number
+
+responses:
   utter_weather:
-  - text: "The weather is greate today"
+    - text: "The weather is great today"
 
   utter_greet:
-  - text: "Hey! How are you?"
+    - text: "Hey! How are you?"
+
+  utter_ask_age:
+    - text: "What is your age?"
+
+  utter_ask_number:
+    - text: "Enter your phone number!"
 
   utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_5-Ln5ZaXMCCmhWqGeTwjCxrPQ0-Wourq0w&s"
+    - text: "Here is something to cheer you up:"
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_5-Ln5ZaXMCCmhWqGeTwjCxrPQ0-Wourq0w&s"
 
   utter_did_that_help:
-  - text: "Did that help you?"
+    - text: "Did that help you?"
 
   utter_happy:
-  - text: "Great, carry on!"
+    - text: "Great, carry on!"
 
   utter_goodbye:
-  - text: "Bye"
+    - text: "Bye"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+    - text: "I am a bot, powered by Rasa."
 
 session_config:
   session_expiration_time: 60

@@ -17,6 +17,13 @@ nlu:
     - goodevening
     - good afternoon
 
+- intent: question
+  examples: |
+    - I am [27](number) year old
+    - My age is [16](number)
+    - My phone number is [1234567891](number)
+    - This is my phone number [7879586959](number)
+
 - intent: weather
   examples: |
     - how is the weather today
